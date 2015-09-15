@@ -18,6 +18,14 @@ Address.prototype.fullAddress = function() {
     return this.address = this.street + ", " + this.city + ", " + this.state;
 }
 
+function resetFields() {
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input.new-street").val("");
+    $("input.new-city").val("");
+    $("input.new-state").val("");
+}
+
 $(document).ready(function() {
     $("#add-address").click(function() {
         $("#new-addresses").append('<div class="new-address">' +
@@ -49,7 +57,7 @@ $(document).ready(function() {
             var inputtedCity = $(this).find("input.new-city").val();
             var inputtedState = $(this).find("input.new-state").val();
 
-            var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
+            var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState);
             newContact.addresses.push(newAddress);
         });
 
@@ -64,15 +72,11 @@ $(document).ready(function() {
 
             $("ul#addresses").text("");
             newContact.addresses.forEach(function(address) {
-                $("ul#addresses").append("<li>" + address.street + ", " + address.state + "</li>");
+                $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
             });
         });
 
-        $("input#new-first-name").val("");
-        $("input#new-last-name").val("");
-        $("input.new-street").val("");
-        $("input.new-city").val("");
-        $("input.new-state").val("");
+        resetFields();
 
     });
 });
