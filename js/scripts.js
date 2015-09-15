@@ -5,7 +5,7 @@ function Ticket(movieName, movieTime, ageBracket) {
 }
 
 Ticket.prototype.movieTicket = function() {
-    return this.movieName + " at " + this.movieTime + " ticket type: " + this.ageBracket;
+    return this.movieName + " at " + this.movieTime + " Ticket type: " + this.ageBracket;
 }
 
 function resetFields() {
@@ -38,20 +38,28 @@ $(document).ready(function() {
 
         inputtedMovieName = movieArrayObject[movieCode];
 
-        // var timeArrayObject = [
-        //     1 : "1:30 pm",
-        //     3 : "3:00 pm",
-        //     4 : "4:30 pm",
-        //     5 : "5:30 pm",
-        //     6 : "6:30 pm",
-        //     7 : "7:30 pm",
-        //     8 : "8:30 pm",
-        //     9 : "9:30 pm",
-        // ];
+        var timeArrayObject = {
+            time1 : "1:30 pm",
+            time3 : "3:00 pm",
+            time4 : "4:30 pm",
+            time5 : "5:30 pm",
+            time6 : "6:30 pm",
+            time7 : "7:30 pm",
+            time8 : "8:30 pm",
+            time9 : "9:30 pm",
+        };
 
-        inputtedMovieTime = "7";
+        inputtedMovieTime = timeArrayObject[timeCode];
 
-        inputtedAgeBracket = "senior";
+        var ageArrayObject = {
+            child : "Child",
+            youth : "Youth",
+            student : "Student",
+            adult : "Adult",
+            senior : "Senior"
+        };
+
+        inputtedAgeBracket = ageArrayObject[ageCode];
 
         var newTicket = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAgeBracket);
 
