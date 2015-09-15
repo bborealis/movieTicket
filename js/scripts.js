@@ -27,9 +27,12 @@ function resetFields() {
     $( ".removable" ).remove();
 }
 
+debugger;
+
 $(document).ready(function() {
     $("#add-address").click(function() {
-        $("#new-addresses").append('<div class="new-address">' +
+
+        $("#new-addresses").fadeTo("slow").append('<div class="new-address">' +
                                         '<div class="removable">' +
                                             '<div class="form-group">' +
                                                 '<label for="new-street">Street</label>' +
@@ -55,8 +58,6 @@ $(document).ready(function() {
 
         var newContact = new Contact (inputtedFirstName, inputtedLastName);
 
-        // $( "div").not( document.getElementsByClassName("removable"));
-
         $(".new-address").each(function() {
             var inputtedStreet = $(this).find("input.new-street").val();
             var inputtedCity = $(this).find("input.new-city").val();
@@ -69,7 +70,7 @@ $(document).ready(function() {
         $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
         $(".contact").last().click(function() {
-            $("#show-contact").show();
+            $("#show-contact").fadeIn("slow").show();
 
             $("#show-contact h2").text(newContact.firstName);
             $(".full-name").text(newContact.fullName());
