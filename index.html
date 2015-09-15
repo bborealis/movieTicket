@@ -6,54 +6,59 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Address book</title>
+    <title>COSTNER CLASSIC CINEM</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Address book</h1>
-
+        <h1>COSTNER CLASSIC CINEMA</h1>
         <div class="row">
-
-
             <div class="col-md-6">
-                <h2>Add a contact:</h2>
-                <form id="new-contact">
+                <h2>ADD TICKET:</h2>
+                <form id="new-ticket">
                     <div class="form-group">
-                        <label for="new-first-name">First name</label>
-                        <input type="text" class="form-control" id="new-first-name">
+                        <label for="new-movie-name">MOVIE:</label>
+                        <select name="new-movie-name" id="new-movie-name">
+                            <option value="danceswithwolves">Dances With Wolves</option>
+                            <option value="robinhood">Robin Hood: Prince of Thieves</option>
+                            <option value="waterworld">Water World</option>
+                            <option value="fieldofdreams">Field of Dreams</option>
+                            <option value="thepostman">The Postman</option>
+                            <option value="theuntouchables">The Untouchables</option>
+                            <option value="thebodyguard">The Bodyguard</option>
+                            <option value="bulldurham">Bull Durham</option>
+                            <option value="tincup">Tin Cup</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="new-last-name">Last name</label>
-                        <input type="text" class="form-control" id="new-last-name">
+                        <label for="new-movie-time">TIME:</label>
+                        <select name="new-movie-time" id="new-movie-time">
+                            <option value="1">1:30 pm</option>
+                            <option value="3">3:00 pm</option>
+                            <option value="4">4:30 pm</option>
+                            <option value="5">5:30 pm</option>
+                            <option value="6">6:30 pm</option>
+                            <option value="7">7:30 pm</option>
+                            <option value="8">8:30 pm</option>
+                            <option value="9">9:30 pm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-age-bracket">AGE:</label>
+                        <select name="new-age-bracket" id="new-age-bracket">
+                            <option value=1>Child (5 and under)</option>
+                            <option value=2>Youth (6 - 17)</option>
+                            <option value=3>Student</option>
+                            <option value=4>Adult(18 - 54)</option>
+                            <option value=5>Senior(55+)</option>
+                        </select>
                     </div>
 
-                    <div id="new-addresses">
-                        <div class="effect">
-                            <div class="new-address">
-                                <div class="form-group">
-                                    <label for="new-street">Street</label>
-                                    <input type="text" class="form-control new-street">
-                                </div>
-                                <div class="form-group">
-                                    <label for="new-city">City</label>
-                                    <input type="text" class="form-control new-city">
-                                </div>
-                                <div class="form-group">
-                                    <label for="new-state">State</label>
-                                    <input type="text" class="form-control new-state">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <span class="btn btn-primary" id="add-address">Another address</span>
-
-                    <button type="submit" class="btn">Add</button>
+                    <button type="submit" class="btn">Purchase</button>
                 </form>
 
-                <h2>Contacts:</h2>
-                <ul id="contacts">
+                <h2>Tickets:</h2>
+                <ul id="movie">
 
                 </ul>
 
@@ -61,13 +66,6 @@
                     <div id="show-contact">
                         <h2></h2>
 
-                        <p>Name:
-                            <span class="full-name"></span>
-                        </p>
-                        <p>Address:</p>
-                        <ul id="addresses">
-
-                        </ul>
                     </div>
                 </div>
             </div>

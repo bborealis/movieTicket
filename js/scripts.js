@@ -1,85 +1,61 @@
-function Contact(firstName, lastName){
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.addresses = [];
+function Ticket(movieName, movieTime, ageBracket) {
+    this.movieName = movieName;
+    this.movieTime = movieTime;
+    this.ageBracket = ageBracket;
 }
 
-Contact.prototype.fullName = function() {
-    return this.firstName + " " + this.lastName;
-}
-
-function Address(street, city, state) {
-    this.street = street;
-    this.city = city;
-    this.state = state;
-}
-
-Address.prototype.fullAddress = function() {
-    return this.address = this.street + ", " + this.city + ", " + this.state;
+Ticket.prototype.movieTicket = function() {
+    return this.movieName + " at " + this.movieTime + " ticket type: " + this.ageBracket;
 }
 
 function resetFields() {
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
-    $( ".removable" ).remove();
+    $("input#movie-name").val("");
+    $("input#movie-time").val("");
+    $("input#age-bracket").val("");
+    $(".removable").remove();
 }
 
-debugger;
-
 $(document).ready(function() {
-    $("#add-address").click(function() {
 
-        $("#new-addresses").append('<div class="new-address">' +
-                                        '<div class="removable">' +
-                                            '<div class="form-group">' +
-                                                '<label for="new-street">Street</label>' +
-                                                '<input type="text" class="form-control new-street">' +
-                                            '</div>' +
-                                            '<div class="form-group">' +
-                                                '<label for="new-city">City</label>' +
-                                                '<input type="text" class="form-control new-city">' +
-                                            '</div>' +
-                                            '<div class="form-group">' +
-                                                '<label for="new-state">State</label>' +
-                                                '<input type="text" class="form-control new-state">' +
-                                            '</div>' +
-                                        '</div>' +
-                                    '</div>');
-    });
-
-    $("form#new-contact").submit(function(event) {
+    $("form#new-ticket").submit(function(event) {
         event.preventDefault();
 
-        var inputtedFirstName = $("input#new-first-name").val();
-        var inputtedLastName = $("input#new-last-name").val();
+        var movieCode = $("#new-movie-name option:selected").val();
+        var timeCode = $("#new-movie-time option:selected").val();
+        var ageCode = $("#new-age-bracket option:selected").val();
 
-        var newContact = new Contact (inputtedFirstName, inputtedLastName);
+        var movieArrayObject = {
+            danceswithwolves : "Dances With Wolves",
+            robinhood : "Robin Hood: Prince of Thieves",
+            waterworld : "WaterWorld",
+            fieldofdreams : "Field Of Dreams",
+            thepostman : "The Postman",
+            theuntouchables : "The Untouchables",
+            thebodyguard : "The Bodyguard",
+            bulldurham : "Bull Durham",
+            tincup : "Tin Cup"
+        };
 
-        $(".new-address").each(function() {
-            var inputtedStreet = $(this).find("input.new-street").val();
-            var inputtedCity = $(this).find("input.new-city").val();
-            var inputtedState = $(this).find("input.new-state").val();
+        inputtedMovieName = movieArrayObject[movieCode];
 
-            var newAddress = new Address(inputtedStreet, inputtedCity, inputtedState);
-            newContact.addresses.push(newAddress);
-        });
+        // var timeArrayObject = [
+        //     1 : "1:30 pm",
+        //     3 : "3:00 pm",
+        //     4 : "4:30 pm",
+        //     5 : "5:30 pm",
+        //     6 : "6:30 pm",
+        //     7 : "7:30 pm",
+        //     8 : "8:30 pm",
+        //     9 : "9:30 pm",
+        // ];
 
-        $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
+        inputtedMovieTime = "7";
 
-        $(".contact").last().click(function() {
-            $("#show-contact").fadeIn("slow").show();
+        inputtedAgeBracket = "senior";
 
-            $("#show-contact h2").text(newContact.firstName);
-            $(".full-name").text(newContact.fullName());
+        var newTicket = new Ticket(inputtedMovieName, inputtedMovieTime, inputtedAgeBracket);
 
-            $("ul#addresses").text("");
-            newContact.addresses.forEach(function(address) {
-                $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
-            });
-        });
+        $("ul#movie").append("<li>" + newTicket.movieTicket() + "</li>");
 
         resetFields();
 
