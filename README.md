@@ -1,12 +1,12 @@
-# _Address Book_
+# _Movie Tickets_
 
-##### _Address Book 9/15/2015_
+##### _Movie Ticket App 9/15/2015_
 
 #### By Brian Borealis & Nathan Young
 
 ## Description
 
-_User enters contacts into address book_
+_A webpage where a user can select the name of a movie, the time of day that they would like to see the movie and their age._
 
 ## Setup
 

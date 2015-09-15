@@ -32,7 +32,7 @@ debugger;
 $(document).ready(function() {
     $("#add-address").click(function() {
 
-        $("#new-addresses").fadeTo("slow").append('<div class="new-address">' +
+        $("#new-addresses").append('<div class="new-address">' +
                                         '<div class="removable">' +
                                             '<div class="form-group">' +
                                                 '<label for="new-street">Street</label>' +
